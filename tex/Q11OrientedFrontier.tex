@@ -152,6 +152,91 @@ a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
     Only then can the signal be attributed to the recursive orientation rather than
     to a hidden sampling bias.
 
+  \section{BI parity versus the residual reflection}
+
+    The outgoing-frontier observable isolates a residual obstruction.
+    The obstruction is not the BI parity itself.
+    It is the reflection
+    \[
+      \varphi:(a,b,z)\longmapsto(-a,b,-z),
+    \]
+    which preserves the outgoing frontier and reverses the central cocycle.
+
+    In the O12 fingerprint variables
+    \[
+      \mathrm{fp}_c(g;x)
+      =
+      q^{-3/2}
+      \exp\left(\frac{2\pi i}{q}(A_c(g)+B_c(g)x)\right),
+    \]
+    the action of $\varphi$ is
+    \[
+      \varphi:(A_c,B_c)\longmapsto(-A_c,+B_c).
+    \]
+    By contrast, the spinorial BI parity of Q14~\cite{Beau2026q14} is the antiunitary structure
+    $J_\Pi=HK$.
+    In the weight basis Q14 fixes
+    \[
+      K=\sigma_x\circ\overline{(\cdot)},\qquad H=\sigma_z,\qquad
+      J_\Pi^{\mathrm{int}}=HK=\varepsilon\circ\overline{(\cdot)}.
+    \]
+    Thus the induced action on the fingerprint character is the BI-conjugate action
+    \[
+      J_\Pi:(A_c,B_c)\longmapsto(-A_c,-B_c).
+    \]
+    Consequently
+    \[
+      J_\Pi\neq\varphi.
+    \]
+    The residual reflection differs from BI parity by the frequency reflection
+    \[
+      R_b:(A_c,B_c)\longmapsto(A_c,-B_c),
+    \]
+    namely
+    \[
+      \varphi=R_b\circ J_\Pi.
+    \]
+
+    This distinction is important.
+    The residual obstruction is not removed by the statement that the chiral selector is
+    $J_\Pi$-odd.
+    Since $\varphi$ differs from $J_\Pi$ by $R_b$, the relevant condition is instead
+    whether chirality is blind to the frequency sector:
+    \[
+      [\gamma_5,R_b]=0.
+    \]
+    Under this condition, $J_\Pi$-oddness implies $\varphi$-oddness.
+    Indeed, using $J_\Pi\gamma_5=-\gamma_5J_\Pi$ and assuming
+    $[\gamma_5,R_b]=0$, one obtains
+    \[
+      \varphi\gamma_5
+      =
+      R_bJ_\Pi\gamma_5
+      =
+      -R_b\gamma_5J_\Pi
+      =
+      -\gamma_5R_bJ_\Pi
+      =
+      -\gamma_5\varphi.
+    \]
+    Thus $\gamma_5$ is $\varphi$-odd.
+
+    The frontier cocycle $\Delta A_c$ is itself $\varphi$-odd and arrow-odd.
+    Therefore, if $[\gamma_5,R_b]=0$, the chiral integrand
+    \[
+      \gamma_5\,\Delta A_c
+    \]
+    is $\varphi$-even and arrow-odd.
+    It can survive the residual reflection while retaining the required orientation under
+    cascade reversal.
+
+    This is only a conditional lifting statement.
+    If $[\gamma_5,R_b]\neq0$, or if $R_b$ is not a legitimate frequency-sector
+    operator on the chiral carrier, then the $V-A$ selector of Q14 does not lift the
+    $\varphi$-obstruction.
+    In that case the angular amplitude remains open even after the Q11 frontier
+    orientation is imposed.
+
   \section{Status and protocol}
 
     This note defines the object and its falsification protocol only.
@@ -170,6 +255,13 @@ a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
     extracted from symmetric capacity data.
     Neither the normalisation $\mathcal{N}_A$ nor any comparison to a dictionary value is performed here;
     these remain deferred, and become meaningful only if both tests pass.
+
+    The remaining problem is therefore not an amplitude computation.
+    It is the operator question whether the chiral grading $\gamma_5$ commutes with the
+    frequency reflection $R_b$.
+    Only after this condition is established does it make sense to compute a chiral
+    frontier signal and to ask for the normalisation $\mathcal{N}_A$.
+
 
     \bibliographystyle{plain}
     \bibliography{cosmochrony-bibliography}
