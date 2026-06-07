@@ -1,0 +1,177 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{doi}
+
+\providecommand{\Sym}{\mathrm{Sym}}
+\providecommand{\End}{\mathrm{End}}
+\providecommand{\Heis}{\mathrm{Heis}}
+\providecommand{\Ihat}{\widehat{I}}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{remark}{Remark}
+
+\title{The Oriented Frontier Observable:
+a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
+\large (internal note, twin to the symmetric-capacity obstruction)}
+\author{Cosmochrony programme --- working note}
+\date{\today}
+
+\begin{document}
+  \maketitle
+
+  \begin{abstract}
+    The symmetric-capacity obstruction establishes that the raw shell observable of the angular generation
+    split vanishes identically, $\Theta_{\mathrm{raw}}=0$: on a symmetric BFS shell the involution
+    $g\mapsto g^{-1}$ pairs opposite central phases and erases the oriented $J_\Pi$-odd component before the
+    radial recursion can act.
+    This note defines the honest replacement: a frontier transfer observable attached to the directed
+    outgoing edges $g\to gs$ of the cascade, whose central increment is the Heisenberg cocycle $a(g)\,s_b$,
+    the discrete counterpart of the Baker--Campbell--Hausdorff term $\tfrac{1}{2}[X,Y]$ and hence of the
+    dynamical $J_3$~\cite{Beau2026q11,Beau2026q14}.
+    The orientation is the recursive arrow $\partial_\tau=\log g$ from the projection origin to increasing
+    BFS depth, not an extracted weight.
+    The first test is not an amplitude value but the existence of an oriented signal,
+    $\langle\Delta A_c\rangle_{\partial^+S_m}\neq 0$, which may fail if a residual automorphism re-pairs the
+    frontier; the discriminating anti-bias control is the symmetrised-frontier cancellation
+    $\langle\Delta A_c\rangle_{\partial^+S_m\cup\partial^-S_m}=0$.
+    No normalisation $\mathcal{N}_A$, no dictionary value, and no $\varepsilon$ appear in this note: it tests
+    only whether the recursion produces a non-zero, bias-free oriented signal.
+  \end{abstract}
+
+  \textbf{Keywords:} oriented cascade; frontier transfer; Heisenberg cocycle; recursive orientation;
+  generation split; anti-bias control; projected capacity.
+
+  \section{Context}
+
+    Q14, \S6~\cite{Beau2026q14} fixes the angular generation split as an amplitude with a factorised
+    architecture and defers its absolute value to the physical normalisation of the metaplectic $J_3$
+    generator.
+    The companion symmetric-capacity obstruction note isolates the two sectors in the O12 fingerprint
+    exponent --- the frequency $B_c$ carries the radial capacity $\sigma_c$, the central phase $A_c$ carries
+    the angular split --- and shows that a direct evaluation on symmetric BFS shells returns
+    $\Theta_{\mathrm{raw}}=0$ identically.
+    The obstruction is not the absence of an angular phase; it is that the symmetric shell average is the
+    wrong observable for a recursively oriented cascade.
+
+    The present note records the natural exit, prescribed by the oriented cascade arrow
+    $\partial_\tau=\log g$~\cite{Beau2026q11} rather than chosen.
+    Concretely, the central phase of a single element $g=(a,b,z)$ under the central character $c$ is
+    $A_c(g)=c\,z$, so the swept central coordinate $z$ is the oriented symplectic area from the origin to
+    $g$.
+    Along one outward step $g\to gs$ the Heisenberg law gives $z(gs)=z(g)+z(s)+a(g)\,s_b$, hence
+    \[
+      \Delta A_c(g,s) = A_c(gs)-A_c(g) = c\big(z(s)+a(g)\,s_b\big),
+    \]
+    which for the admissible generators ($z(s)=0$) reduces to the pure cocycle $c\,a(g)\,s_b$.
+    This is the discrete $\tfrac{1}{2}[X,Y]$ increment: the transfer observable measures exactly the
+    dynamical $J_3$ carried by the oriented edge, not a free shear.
+
+  \section{The oriented frontier observable}
+
+    The symmetric-capacity obstruction shows that the raw shell observable cannot
+    select an angular branch: on a symmetric BFS shell $S_m$, the involution
+    $g\mapsto g^{-1}$ pairs opposite central phases and cancels the oriented
+    $J_\Pi$-odd component.
+    The Q11-oriented observable is therefore not a shell average.
+    It is a frontier transfer observable.
+
+    Fix the identity element $e$ as the projection origin and let $d(e,g)$ be the
+    BFS distance in the admissible Cayley graph.
+    For each shell $S_m=\{g:d(e,g)=m\}$, define the outgoing and incoming frontiers by
+    \[
+      \partial^+S_m
+      =
+      \{(g,s): d(e,g)=m,\ d(e,gs)=m+1\},
+    \]
+    \[
+      \partial^-S_m
+      =
+      \{(g,s): d(e,g)=m,\ d(e,gs)=m-1\}.
+    \]
+    No subset of generators is selected.
+    The orientation is the recursive arrow from the projection origin to increasing
+    BFS depth.
+
+    For a directed frontier edge $g\to gs$, define
+    \[
+      \Delta A_c(g,s)=A_c(gs)-A_c(g).
+    \]
+    Since $A_c$ changes sign under the conjugate branch $c\mapsto q-c$,
+    $\Delta A_c$ is already $J_\Pi$-odd:
+    \[
+      \operatorname{Odd}_{J_\Pi}(\Delta A_c)=\Delta A_c.
+    \]
+    The $J_\Pi$-odd notation is therefore a parity check, not an additional filter.
+
+    The Q11-oriented raw angular profile is
+    \[
+      \Theta_{\mathrm{Q11}}^{\mathrm{raw}}(m)
+      =
+      \left\langle
+        \frac{2\pi}{q}\Delta A_c(g,s)
+      \right\rangle_{\partial^+S_m}.
+    \]
+    Its cumulative, capacity-normalised form is
+    \[
+      \Theta_{\mathrm{Q11}}^{\mathrm{oriented}}(n)
+      =
+      \frac{1}{\Ihat(n)}
+      \sum_{m\le n}
+      \Theta_{\mathrm{Q11}}^{\mathrm{raw}}(m)\,\Delta\Ihat(m).
+    \]
+    This quantity is prescribed by the oriented frontier of the cascade, not extracted
+    from symmetric capacity data.
+
+    The first test is not the value of the amplitude, but the existence of an oriented
+    signal:
+    \[
+      \Theta_{\mathrm{Q11}}^{\mathrm{raw}}(m)\overset{?}{\neq}0.
+    \]
+    This test may fail.
+    The outgoing frontier is canonical once the origin and admissible generators are
+    fixed, but a residual automorphism of the frontier may still re-pair the cocycle
+    contributions.
+
+    The required anti-bias control is the symmetrised-frontier cancellation:
+    \[
+      \left\langle
+        \frac{2\pi}{q}\Delta A_c(g,s)
+      \right\rangle_{\partial^+S_m\cup\partial^-S_m}
+      \overset{!}{=}0.
+    \]
+    Thus a valid oriented signal must satisfy
+    \[
+      \left\langle \Delta A_c\right\rangle_{\partial^+S_m}\neq0,
+      \qquad
+      \left\langle \Delta A_c\right\rangle_{\partial^+S_m\cup\partial^-S_m}=0.
+    \]
+    Only then can the signal be attributed to the recursive orientation rather than
+    to a hidden sampling bias.
+
+  \section{Status and protocol}
+
+    This note defines the object and its falsification protocol only.
+    The twin script \texttt{q11\_oriented\_frontier.py} returns the three profiles
+    $\Theta^{\mathrm{raw}}_{\partial^+}(m)$, $\Theta^{\mathrm{raw}}_{\partial^-}(m)$,
+    $\Theta^{\mathrm{raw}}_{\partial^+\cup\partial^-}(m)$, the cumulative capacity-normalised
+    $\Theta_{\mathrm{Q11}}^{\mathrm{oriented}}(n)$, and the three status flags
+    (\texttt{sign\_reversal\_check}, \texttt{sym\_frontier\_zero\_check},
+    \texttt{automorphism\_residual\_status}).
+    The sign-reversal check $\Theta^{\mathrm{raw}}_{\partial^-}=-\Theta^{\mathrm{raw}}_{\partial^+}$ is nearly
+    tautological once $\partial^-$ is the reversed frontier; it is a consistency check, not the discriminant.
+    The discriminant is the symmetrised cancellation: a signal is admissible only if it is non-zero on
+    $\partial^+$ \emph{and} zero on $\partial^+\cup\partial^-$.
+
+    The status of the observable is explicit: the orientation is prescribed by $\partial_\tau=\log g$, not
+    extracted from symmetric capacity data.
+    Neither the normalisation $\mathcal{N}_A$ nor any comparison to a dictionary value is performed here;
+    these remain deferred, and become meaningful only if both tests pass.
+
+    \bibliographystyle{plain}
+    \bibliography{cosmochrony-bibliography}
+
+\end{document}
