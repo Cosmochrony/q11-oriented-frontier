@@ -12,6 +12,7 @@
 \providecommand{\Ihat}{\widehat{I}}
 
 \newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
 \newtheorem{remark}{Remark}
 
 \title{The Oriented Frontier Observable:
@@ -153,6 +154,7 @@ a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
     to a hidden sampling bias.
 
   \section{BI parity versus the residual reflection}
+    \label{sec:bi-residual}
 
     The outgoing-frontier observable isolates a residual obstruction.
     The obstruction is not the BI parity itself.
@@ -239,7 +241,8 @@ a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
 
   \section{Status and protocol}
 
-    This note defines the object and its falsification protocol only.
+    This note defines the object and its falsification protocol, and resolves the operator condition
+    on which the chiral lift depends (Section~\ref{sec:residual-resolution}).
     The twin script \texttt{q11\_oriented\_frontier.py} returns the three profiles
     $\Theta^{\mathrm{raw}}_{\partial^+}(m)$, $\Theta^{\mathrm{raw}}_{\partial^-}(m)$,
     $\Theta^{\mathrm{raw}}_{\partial^+\cup\partial^-}(m)$, the cumulative capacity-normalised
@@ -266,9 +269,76 @@ a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
     The remaining problem is therefore not an amplitude computation.
     It is the operator question whether the chiral grading $\gamma_5$ commutes with the
     frequency reflection $R_b$.
-    Only after this condition is established does it make sense to compute a chiral
-    frontier signal and to ask for the normalisation $\mathcal{N}_A$.
+    This question is settled in Section~\ref{sec:residual-resolution}: the residual reflection is the
+    central Weil lift $W(-I)$, hence a scalar on the chiral carrier.
+    Only once this is established does it make sense to compute a chiral frontier signal and to ask for
+    the normalisation $\mathcal{N}_A$.
 
+
+  \section{Resolution: the residual reflection is the central Weil lift}
+    \label{sec:residual-resolution}
+
+    The conditional lifting statement of Section~\ref{sec:bi-residual} reduces the obstruction to a
+    single operator question.
+    The O12 fingerprint settles it: the residual frequency reflection is not a free operator but the
+    Weil lift of the central symplectic element, so its action on the chiral carrier is forced.
+
+    \begin{lemma}[Residual frequency reflection as the central Weil lift]
+      \label{lem:rb-central-weil-lift}
+      The residual reflection $R_b=\varphi\circ J_\Pi^{-1}$ is the Weil lift of the central symplectic
+      element $-I$.
+      Equivalently $R_b=W(-I)=\mathrm{FT}^2$, up to the metaplectic phase.
+    \end{lemma}
+
+    \begin{proof}
+      Both $\varphi$ and $J_\Pi$ invert the central character, $A_c\mapsto-A_c$, so each is antiunitary.
+      Their quotient $R_b=\varphi\circ J_\Pi^{-1}$ is therefore unitary and preserves the central
+      character.
+      By the Stone--von Neumann theorem it is the Weil lift $W(M)$ of a symplectic automorphism $M$, up
+      to phase.
+      The element $M$ is fixed by the fingerprint.
+      The O12 fingerprint~\cite{Beau2026a16} has the form
+      \[
+        \mathrm{fp}_c(g;x)=q^{-3/2}\exp\!\left(\frac{2\pi i}{q}\bigl(A_c(g)+B_c(g)x\bigr)\right),
+        \qquad
+        B_c(g)=\sum_i c_i b_i,
+        \quad
+        A_c(g)=\sum_i c_i(\gamma_i-b_i a_i),
+      \]
+      so $B_c$ is the pure Weil frequency carried by the $b_i$, while the cocycle $-b_i a_i$ sits in
+      $A_c$.
+      The action $R_b:(A_c,B_c)\mapsto(A_c,-B_c)$ forces $b_i\mapsto-b_i$.
+      Invariance of $A_c$, including its cocycle term $-b_i a_i$, then forces $a_i\mapsto-a_i$, while the
+      centre is fixed.
+      Hence the induced horizontal map is $(a_i,b_i)\mapsto(-a_i,-b_i)$, that is $M=-I$, and
+      $R_b=W(-I)=\mathrm{FT}^2$ up to the metaplectic phase.
+    \end{proof}
+
+    \begin{corollary}[Commutation with chirality]
+      \label{cor:gamma5-rb-commutes}
+      The residual frequency reflection satisfies $[\gamma_5,R_b]=0$.
+    \end{corollary}
+
+    \begin{proof}
+      By Lemma~\ref{lem:rb-central-weil-lift}, $R_b$ is the Weil lift of the central element
+      $-I\in\mathrm{Sp}(2)$.
+      After the Lorentzian complexification $\mathfrak{mp}(2,\mathbb{R})_{\mathbb{C}}\simeq
+      \mathfrak{sl}_2(\mathbb{C})$ of Q14~\cite{Beau2026q14}, this element lies in the connected spin
+      group $\mathrm{SL}(2,\mathbb{C})$, where $-I$ is central and acts on each Weyl factor by a scalar.
+      The metaplectic phase ambiguity changes this scalar by an overall sign or phase only.
+      In all cases $R_b$ is a scalar on $S_L\oplus S_R$, while $\gamma_5$ is diagonal with opposite
+      eigenvalues on the two factors.
+      A scalar commutes with a diagonal operator, hence $[\gamma_5,R_b]=0$.
+    \end{proof}
+
+    The conditional lift of Section~\ref{sec:bi-residual} is therefore unconditional on the chiral
+    side.
+    The residual reflection is blind to chirality, so the $V-A$ selector of Q14~\cite{Beau2026q14}
+    removes the $\varphi$-paired obstruction, and it does so without introducing a spacetime parity:
+    $R_b$ is the central element of the connected spin group, not a disconnected element of
+    $\mathrm{O}(3,1)$.
+    What remains deferred is only the amplitude normalisation $\mathcal{N}_A$, not the operator
+    question.
 
     \bibliographystyle{plain}
     \bibliography{cosmochrony-bibliography}
