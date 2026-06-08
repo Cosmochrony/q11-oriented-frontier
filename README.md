@@ -4,7 +4,7 @@ J. Beau, Independent Researcher, France
 
 ## Status
 
-Working note (preprint), v1.0.
+Working note (preprint), v1.0. DOI: [10.5281/zenodo.20601245](https://doi.org/10.5281/zenodo.20601245)
 
 ## Abstract
 
