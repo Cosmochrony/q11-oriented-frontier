@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you cite this work, please use the metadata from this file."
+title: "The Oriented Frontier Observable: a Recursive Q11 Diagnostic for the Angular Generation Split (internal note, twin to the symmetric-capacity obstruction)"
+type: software
+authors:
+  - family-names: "Beau"
+    given-names: "Jérôme"
+repository-code: "https://github.com/Cosmochrony/q11-oriented-frontier"
+url: "https://cosmochrony.org/science/fermionic-matter/q11-oriented-frontier/"
+doi: "10.5281/zenodo.20601245"
+license: "CC-BY-4.0"
+preferred-citation:
+  type: article
+  title: "The Oriented Frontier Observable: a Recursive Q11 Diagnostic for the Angular Generation Split (internal note, twin to the symmetric-capacity obstruction)"
+  authors:
+    - family-names: "Beau"
+      given-names: "Jérôme"
+  year: 2026
+  doi: "10.5281/zenodo.20601245"
+  url: "https://doi.org/10.5281/zenodo.20601245"
