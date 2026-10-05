@@ -46,6 +46,8 @@ a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
     $\langle\Delta A_c\rangle_{\partial^+S_m}\neq 0$, which may fail if a residual automorphism re-pairs the
     frontier; the discriminating anti-bias control is the symmetrised-frontier cancellation
     $\langle\Delta A_c\rangle_{\partial^+S_m\cup\partial^-S_m}=0$.
+    The chiral lift of the residual reflection is reduced to one named hypothesis, [H-WS] ($R_b$ acts as a scalar
+    on the chiral carrier), supplied by no source.
     No normalisation $\mathcal{N}_A$, no dictionary value, and no $\varepsilon$ appear in this note: it tests
     only whether the recursion produces a non-zero, bias-free oriented signal.
   \end{abstract}
@@ -330,14 +332,18 @@ a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
       $R_b=W(-I)=\mathrm{FT}^2$ up to the metaplectic phase.
     \end{proof}
 
-    \begin{hypothesis}[Weil-to-spin map, {[H-WS]}]
+    \begin{hypothesis}[Chiral action of the residual reflection, {[H-WS]}]
       \label{hyp:ws}
-      There is a group-level map (homomorphism or projective representation) from the finite Weil group to the
-      $\mathrm{SL}(2,\mathbb{C})$ of the spin solder of Q14, taking $W(-I)$ to the central element $-I$, so that
-      $R_b$ acts as a scalar on $S_L\oplus S_R$.
-      No source supplies it: Q14 states only an algebra-level isomorphism
-      $\mathfrak{mp}(2,\mathbb{R})_{\mathbb{C}}\simeq\mathfrak{sl}_2(\mathbb{C})$ and lists the map among its open
-      directions~\cite{Beau2026q14}, and A4-Note~\cite{Beau2026bim} states that it is supplied by no source.
+      The residual reflection $R_b=W(-I)$ acts on the chiral carrier $S_L\oplus S_R$ as a scalar, that is,
+      $[\gamma_5,R_b]=0$.
+      No source supplies it: a Weil-to-spin group map, which would give it, is supplied by none (Q14,
+      open directions~\cite{Beau2026q14}; A4-Note~\cite{Beau2026bim}), Q14 stating only an algebra-level
+      isomorphism $\mathfrak{mp}(2,\mathbb{R})_{\mathbb{C}}\simeq\mathfrak{sl}_2(\mathbb{C})$.
+      The stronger group-level formulation, a homomorphism from the finite Weil group $\mathrm{SL}(2,\mathbb{F}_q)$ to
+      $\mathrm{SL}(2,\mathbb{C})$ taking $W(-I)$ to $-I$, is not available at the primes $q=61,101,151$ of the corpus:
+      $\mathrm{SL}(2,\mathbb{F}_q)$ is perfect and its smallest non-trivial complex representation has degree
+      $(q-1)/2$.
+      The hypothesis is therefore stated on the chiral carrier.
     \end{hypothesis}
 
     \begin{corollary}[Commutation with chirality, under {[H-WS]}]
@@ -348,19 +354,16 @@ a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
     \begin{proof}
       By Lemma~\ref{lem:rb-central-weil-lift}, $R_b$ is the Weil lift of the central element
       $-I\in\mathrm{Sp}(2)$.
-      By [H-WS] this element is sent to the central element $-I$ of the connected spin
-      group $\mathrm{SL}(2,\mathbb{C})$, where it is central and acts on each Weyl factor by a scalar.
-      The metaplectic phase ambiguity changes this scalar by an overall sign or phase only.
-      In all cases $R_b$ is a scalar on $S_L\oplus S_R$, while $\gamma_5$ is diagonal with opposite
+      By [H-WS], $R_b$ is a scalar on $S_L\oplus S_R$, while $\gamma_5$ is diagonal with opposite
       eigenvalues on the two factors.
       A scalar commutes with a diagonal operator, hence $[\gamma_5,R_b]=0$.
     \end{proof}
 
     The conditional lift of Section~\ref{sec:bi-residual} is therefore reduced to [H-WS].
-    Under [H-WS] the residual reflection is blind to chirality, so the $V-A$ selector of
-    Q14~\cite{Beau2026q14} removes the $\varphi$-paired obstruction, without introducing a spacetime parity:
-    $R_b$ is then the central element of the connected spin group, not a disconnected element of
-    $\mathrm{O}(3,1)$.
+    Under [H-WS] the algebraic obstruction $[\gamma_5,R_b]\neq0$ is absent and $\gamma_5\,\Delta A_c$ is
+    $\varphi$-even.
+    Whether this removes the $\varphi$-paired obstruction without a spacetime parity is the open point of
+    Q14~\cite{Beau2026q14} (open directions), even granting the central-element reading of $R_b$.
     Without [H-WS] the obstruction remains open.
     What remains deferred, besides [H-WS], is the amplitude normalisation $\mathcal{N}_A$.
 
