@@ -32,8 +32,12 @@ discriminant that attributes the signal to recursive orientation, not to samplin
 MAXIMAL-LOCKING BOUND (theta_max): the Ihat-normalised accumulation of the absolute
 frontier increment < (2pi/q)|Delta A_c| >_{d+}. Since phi sends Delta A_c -> -Delta A_c,
 |Delta A_c| is phi-even and its d+ mean equals its d+/phi mean. theta_max bounds the true
-chiral signal, |Theta_chi(n)| <= theta_max(n), with equality only under the chiral-area
+chiral signal, |Theta_chi(n)| <= theta_max(n), with equality only under the chiral-orientation
 locking [H-orient] (sigma_L(e) = sign Delta A_c(e)). It is a structural bound, not epsilon.
+
+NOTE: the Ihat-normalised bound at n_3^obs = 2 (theta_max * q = 2.114, 2.122, 2.118 for q = 61, 101, 151;
+q-stable to 0.4 %, not q-invariant) is not the first-shell (onset) value 2pi/(3q) (coefficient 1/3), because it
+also weights shell 2 (mean 5/9) by Delta Ihat(2). The exact per-shell rationals are in frontier_exact.py.
 
 GUARDRAILS: no N_A, no 1/10, no epsilon anywhere in this script.
 
@@ -71,22 +75,25 @@ PDF_TMPL = "q11_frontier_q{q}.pdf"
 
 
 # --------------------------------------------------------------------------- #
-# Conventions: import from the project pipeline if available, else local fallback
+# Conventions: local reference implementation of the Heisenberg group law and generators
 # --------------------------------------------------------------------------- #
-try:
-    from spectral_O12 import build_generators as _build_generators
-    from spectral_O12 import heisenberg_mul_batch as _hmul_batch
-    PIPELINE = "spectral_O12"
-except Exception:
-    PIPELINE = "local-fallback"
+# Provenance: these are the Heisenberg conventions of the exact Weil-block construction of O12
+# (Cosmochrony/spectral-o12, spectral_O12.py: build_generators, heisenberg_mul_batch). The two local
+# functions below are identical, function by function, to those of spectral_O12 (same group law
+# (a,b,z)(a',b',z') = (a+a', b+b', z+z'+a*b') and same generating set {+-X, +-Y}; only the order of the
+# generator list differs, which no output depends on). The equivalence was verified against the June 2026
+# campaign summaries, which are reproduced to 1e-12 on every key. No external module is needed.
+PIPELINE = "heis3-local"
 
-    def _build_generators(q):
-        return [(1, 0, 0), (0, 1, 0), ((-1) % q, 0, 0), (0, (-1) % q, 0)]
 
-    def _hmul_batch(elts, s, q):
-        a, b, z = elts[:, 0], elts[:, 1], elts[:, 2]
-        sa, sb, sz = s
-        return np.stack([(a + sa) % q, (b + sb) % q, (z + sz + a * sb) % q], axis=1)
+def _build_generators(q):
+    return [(1, 0, 0), (0, 1, 0), ((-1) % q, 0, 0), (0, (-1) % q, 0)]
+
+
+def _hmul_batch(elts, s, q):
+    a, b, z = elts[:, 0], elts[:, 1], elts[:, 2]
+    sa, sb, sz = s
+    return np.stack([(a + sa) % q, (b + sb) % q, (z + sz + a * sb) % q], axis=1)
 
 
 def signed_mod(v, q):
@@ -132,7 +139,7 @@ def frontier_profiles(q, shells, dist, gens, n_max):
     The absolute mean is the maximal-locking bound: since the residual reflection phi
     sends Delta A_c -> -Delta A_c, |Delta A_c| is phi-even, so its mean over d+ equals
     its mean over the quotient d+/phi. It bounds |Theta_chi| and is attained only under
-    the chiral-area locking [H-orient]; it is NOT an amplitude (no N_A, no epsilon).
+    the chiral-orientation locking [H-orient]; it is NOT an amplitude (no N_A, no epsilon).
     """
     c = C_CENTRAL
     two_pi_q = 2.0 * math.pi / q
@@ -281,7 +288,7 @@ def run_q(q):
         th_q11 = np.where(Ihat > 1e-9, weighted / Ihat, np.nan)
 
     # maximal-locking bound: same Ihat-normalised accumulation applied to |Delta A_c|.
-    # |Theta_chi(n)| <= Theta_max(n); equality holds only under [H-orient] (chiral-area
+    # |Theta_chi(n)| <= Theta_max(n); equality holds only under [H-orient] (chiral-orientation
     # locking). This is a structural upper bound on the angle, NOT a value of epsilon.
     th_max_cum = np.cumsum(th_max)
     weighted_max = np.cumsum(th_max * dIhat)
@@ -378,14 +385,6 @@ def _plot(agg):
     print(f"[q={q}] figure -> {PDF_TMPL.format(q=q)}", flush=True)
 
 
-def _fallback_banner():
-    print("!" * 70, flush=True)
-    print("!! WARNING: pipeline = local-fallback (TOY generators / multiplication).", flush=True)
-    print("!! These numbers are NOT the campaign values.", flush=True)
-    print("!! Set PYTHONPATH so that spectral_O12 is importable to run the real pipeline.", flush=True)
-    print("!" * 70, flush=True)
-
-
 def final_summary(aggs):
     print("\n" + "=" * 70)
     print("Q11 ORIENTED FRONTIER -- oriented-signal test (no N_A, no 1/10, no epsilon)")
@@ -400,7 +399,7 @@ def final_summary(aggs):
         print(f"  theta_max bound (n_sat)      = {a['theta_max_bound_sat']:.6f}  "
               f"(|Theta_chi| <= this; equality only under [H-orient])")
         print(f"  theta_max * q (n_sat)        = {a['theta_max_bound_sat_q']:.4f}  "
-              f"(q-invariant diagnostic; should be q-stable across the prime list)")
+              f"(q-stable diagnostic across the prime list, not q-invariant)")
         print(f"  sign_reversal_check          = {'passed' if a['sign_reversal_check'] else 'FAILED'}")
         print(f"  sym_frontier_zero_check      = "
               f"{'passed' if a['sym_frontier_zero_check'] else 'FAILED'}")
@@ -418,25 +417,14 @@ def final_summary(aggs):
     print("Reading: an oriented signal is admissible only if max|theta_plus_raw| > 0 AND")
     print("the symmetrised control max|theta_sym_raw| = 0. Sign reversal alone is not enough.")
     print("theta_max is the maximal-locking bound on |Theta_chi|: a structural upper bound,")
-    print("attained only under the chiral-area locking [H-orient]. It is NOT a value of epsilon.")
+    print("attained only under the chiral-orientation locking [H-orient]. It is NOT a value of epsilon.")
     print("=" * 70)
-    if PIPELINE == "local-fallback":
-        _fallback_banner()
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--mode", choices=["full", "check"], default="full")
-    ap.add_argument("--allow-fallback", action="store_true",
-                    help="permit running on the local-fallback pipeline (toy generators)")
     args = ap.parse_args()
-    if PIPELINE == "local-fallback":
-        _fallback_banner()
-        if args.mode == "full" and not args.allow_fallback:
-            print("REFUSING to run a full campaign on the local-fallback pipeline.\n"
-                  "Make spectral_O12 importable (set PYTHONPATH), or pass --allow-fallback "
-                  "to force a toy run.", flush=True)
-            raise SystemExit(2)
     aggs = []
     for q in Q_LIST:
         agg = run_q(q)

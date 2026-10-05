@@ -4,7 +4,13 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
 \usepackage{doi}
+\hypersetup{
+  unicode,
+  pdftitle={The Oriented Frontier Observable: a Recursive Q11 Diagnostic for the Angular Generation Split},
+  pdfauthor={Jérôme Beau}
+}
 \usepackage{amsopn}
 \usepackage{amsfonts}
 
@@ -22,7 +28,7 @@
 a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
 \large (internal note, twin to the symmetric-capacity obstruction)}
 \author{Cosmochrony programme --- working note}
-\date{\today}
+\date{2026}
 
 \begin{document}
   \maketitle
@@ -70,7 +76,7 @@ a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
     The present note records the natural exit, prescribed by the arrow of the directed Cayley graph (outward
     BFS depth) rather than chosen; the ordering derivative of~\cite{Beau2026q11} is not used.
     Concretely, the central phase of a single element $g=(a,b,z)$ under the central character $c$ is
-    $A_c(g)=c\,z$, so the swept central coordinate $z$ is the oriented symplectic area from the origin to
+    $A_c(g)=c\,z$, so the central coordinate $z$ is the accumulated central-phase increment from the origin to
     $g$.
     Along one outward step $g\to gs$ the Heisenberg law gives $z(gs)=z(g)+z(s)+a(g)\,s_b$, hence
     \[
@@ -266,12 +272,15 @@ a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
     $\Theta_{\mathrm{Q11}}^{\mathrm{oriented}}(n)$, and the three status flags
     (\texttt{sign\_reversal\_check}, \texttt{sym\_frontier\_zero\_check},
     \texttt{automorphism\_residual\_status}).
-    The companion computation verifies this obstruction on
-    $q\in\{61,101,151\}$: the outgoing-frontier signal satisfies
-    $\max_m|\Theta^{\mathrm{raw}}_{\partial^+}(m)|=0$, while the residual
-    reflection $\varphi:(a,b,z)\mapsto(-a,b,-z)$ preserves the outgoing
-    frontier and reverses the cocycle $\Delta A_c$.
-    This numerical check is not used to define the observable; it only confirms the
+    The obstruction is exact: $\varphi:(a,b,z)\mapsto(-a,b,-z)$ is an automorphism of
+    $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$ that exchanges $X$ with $X^{-1}$ and fixes $Y$, hence preserves the
+    generating set and the BFS distance, maps $\partial^+S_m$ to itself and sends $\Delta A_c=a(g)s_b$ to
+    $-\Delta A_c$; therefore $\sum_{\partial^+S_m}\Delta A_c=0$ for every $m$ and every $q$.
+    The script \texttt{code/q11\_oriented\_frontier.py} reproduces it,
+    $\max_m|\Theta^{\mathrm{raw}}_{\partial^+}(m)|=0$ and
+    $\max_m|\Theta^{\mathrm{raw}}_{\partial^+\cup\partial^-}(m)|=0$, on $q\in\{61,101,151\}$, and
+    \texttt{code/frontier\_exact.py} (standard library only) recomputes the exact per-shell frontier statistics from
+    the repository alone; this numerical check is not used to define the observable, it only confirms the
     frontier re-pairing predicted by the symmetry.
     The sign-reversal check $\Theta^{\mathrm{raw}}_{\partial^-}=-\Theta^{\mathrm{raw}}_{\partial^+}$ is nearly
     tautological once $\partial^-$ is the reversed frontier; it is a consistency check, not the discriminant.
@@ -354,14 +363,14 @@ a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
 
     \begin{corollary}[Commutation with chirality, under {[H-WS]}]
       \label{cor:gamma5-rb-commutes}
-      Under [H-WS], the residual frequency reflection satisfies $[\gamma_5,R_b]=0$.
+      Under [H-WS], part~(i), the residual frequency reflection satisfies $[\gamma_5,R_b]=0$.
     \end{corollary}
 
     \begin{proof}
       By Lemma~\ref{lem:rb-central-weil-lift}, $R_b$ is the Weil lift of the central element
       $-I\in\mathrm{Sp}(2)$.
-      By [H-WS], $R_b$ is the scalar $-1$ on $S_L\oplus S_R$, while $\gamma_5$ is diagonal with opposite
-      eigenvalues on the two factors.
+      By [H-WS], part~(i), $R_b$ acts as a scalar on $S_L\oplus S_R$ (the value of the scalar plays no role here;
+      part~(ii) is not used), while $\gamma_5$ is diagonal with opposite eigenvalues on the two factors.
       A scalar commutes with a diagonal operator, hence $[\gamma_5,R_b]=0$.
     \end{proof}
 
@@ -381,7 +390,9 @@ a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
     conjugation exchanges.
     In the inherited Heisenberg central-phase lift the edge phase is the linear cyclotomic character
     $\zeta_q^{\Delta A_c}$, with no Gauss, Maslov, or $\sqrt{5}$ component, and the outgoing-frontier overlap is
-    maximal, $\rho_\chi = 1$, promoting the bound to $\mathcal{N}_A = \theta_{\max} \neq 0$ in that lift, under [H-WS].
+    maximal, $\rho_\chi = 1$, by the definition $\sigma_L:=\operatorname{sign}\Delta A_c$ on the support (a consequence of
+    that definition, not a measured quantity), promoting the bound to $\mathcal{N}_A = \theta_{\max} \neq 0$ in that
+    lift, under [H-WS].
     The residual open point is an additional spin-Galois phase of the full Lorentzian chiral lift, in particular
     a $\sqrt{5}$ or ADE-spin factor orthogonal to $\zeta_q$; the spectral split $u\neq 0$ would further require a transport of the oriented signal to the
     $J_\Pi$-odd generation sector.
