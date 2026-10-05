@@ -66,7 +66,7 @@ python code/q11_oriented_frontier.py   # about 20 s; writes csv/json/pdf/jsonl f
 - `code/frontier_exact.py` gives the exact per-shell frontier statistics of the Heisenberg Cayley graph with
   generators $\{\pm X,\pm Y\}$ ($\langle|\Delta A_c|\rangle_{\partial^+}(m)=\tfrac13,\tfrac59,\tfrac23,
   \tfrac{10}{11},\tfrac{119}{109},\tfrac{239}{185}$, the first-shell (onset) value being $\tfrac13$; vanishing signed
-  frontier sums; independence of $q$ for $q\ge 61$).
+  frontier sums; equality with the $H_3(\mathbb{Z})$ values for $q\in\{61,101,151,211,307\}$, verified for the shells $m\le 6$ only).
 - `code/q11_oriented_frontier.py` reproduces, for $q=61,101,151$, $\max_m|\Theta^{\rm raw}_{\partial^+}|=0$, the
   vanishing of the symmetrised control, and the capacity-weighted bound $\theta_{\max}\cdot q=2.114, 2.122, 2.118$ at
   $n_3^{\rm obs}=2$ ($q$-stable to $0.4\,\%$, not $q$-invariant, and $0.9$--$1.3\,\%$ above the first-shell value

@@ -37,7 +37,8 @@ locking [H-orient] (sigma_L(e) = sign Delta A_c(e)). It is a structural bound, n
 
 NOTE: the Ihat-normalised bound at n_3^obs = 2 (theta_max * q = 2.114, 2.122, 2.118 for q = 61, 101, 151;
 q-stable to 0.4 %, not q-invariant) is not the first-shell (onset) value 2pi/(3q) (coefficient 1/3), because it
-also weights shell 2 (mean 5/9) by Delta Ihat(2). The exact per-shell rationals are in frontier_exact.py.
+also weights shell 2 (mean 5/9) by Delta Ihat(2). The exact per-shell rationals (shells m <= 6, q in {61,101,151,211,307}; verified for m <= 6 only) are computed by
+frontier_exact.py, which does not compute this capacity-weighted value.
 
 GUARDRAILS: no N_A, no 1/10, no epsilon anywhere in this script.
 

@@ -4,6 +4,14 @@
 Heis_3 law (a,b,z)(a',b',z') = (a+a', b+b', z+z'+a*b'); generators {+-X, +-Y}; outgoing frontier
 d+S_m = {(g,s): d(e,g)=m, d(e,gs)=m+1}; central increment Delta A_c(g,s) = z(gs)-z(g) = a(g)*s_b (c=1).
 Runs in H_3(Z) (modulus None) and in H_3(Z/qZ) for the corpus primes; prints exact rationals.
+
+VERIFIED DOMAIN (nothing beyond it is claimed): shells m = 1..6 only, and the primes q in {61, 101, 151, 211, 307}
+only. For each such q the script rebuilds the depth-limited BFS ball (radius 7) in H_3(Z/qZ), recomputes the per-shell
+mean <|Delta A_c|>_{d+} and the support fraction, and compares both sequences with those of H_3(Z) (exact Fractions);
+it also checks that the signed frontier sums vanish. The ball of radius 7 embeds in H_3(Z/qZ) for q >= 61, which is why
+the identification with H_3(Z) is established for m <= 6 only; for larger m the shells wrap and nothing is claimed.
+It does NOT compute the capacity-weighted bound theta_max*q (2.114, 2.122, 2.118), which is a non-exact quantity
+computed by q11_oriented_frontier.py.
 """
 from fractions import Fraction
 from collections import deque
@@ -38,6 +46,7 @@ if __name__ == "__main__":
     for r in ref: print(*r)
     for q in (61, 101, 151, 211, 307):
         rq = frontier(6, q)
-        print(f"q={q}: sequence equals H_3(Z) one: {[r[1] for r in rq] == [r[1] for r in ref]}; "
+        print(f"q={q}: support fractions equal H_3(Z) ones: {[r[2] for r in rq] == [r[2] for r in ref]}; "
+              f"sequence equals H_3(Z) one: {[r[1] for r in rq] == [r[1] for r in ref]}; "
               f"signed sums zero: {all(r[3] == 0 and r[4] == 0 for r in rq)}")
     # rho_chi = <sigma_L dA>/<|dA|> with sigma_L := sign(dA) on the support is 1 by construction wherever <|dA|> != 0
