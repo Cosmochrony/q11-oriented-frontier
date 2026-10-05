@@ -24,7 +24,7 @@ $\mathfrak{sl}_2$ commutator $[E,F]=H$ (Q14, Proposition 6.5).
 The orientation is the arrow of the Cayley graph from the projection origin to increasing BFS depth,
 not an extracted weight; no identification of this arrow with an ordering derivative
 $\partial_\tau$ is made. The chiral lift of the residual reflection is reduced to one named hypothesis [H-WS]: $R_b=W(-I)$
-acts on the chiral carrier $S_L\oplus S_R$ as a scalar, so that $[\gamma_5,R_b]=0$ (supplied by no
+acts on the chiral carrier $S_L\oplus S_R$ as the scalar $-1$, so that $[\gamma_5,R_b]=0$ (supplied by no
 source; the stronger group-level formulation is not available at the corpus primes). The first test is not an amplitude value but the
 existence of an oriented signal,
 $\langle \Delta A_c \rangle_{\partial^+ S_m} \neq 0$, which may fail if a residual automorphism
