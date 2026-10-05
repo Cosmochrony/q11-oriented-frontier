@@ -33,10 +33,13 @@ a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
     radial recursion can act.
     This note defines the honest replacement: a frontier transfer observable attached to the directed
     outgoing edges $g\to gs$ of the cascade, whose central increment is the Heisenberg cocycle $a(g)\,s_b$,
-    the discrete counterpart of the Baker--Campbell--Hausdorff term $\tfrac{1}{2}[X,Y]$ and hence of the
-    dynamical $J_3$~\cite{Beau2026q11,Beau2026q14}.
-    The orientation is the recursive arrow $\partial_\tau=\log g$ from the projection origin to increasing
-    BFS depth, not an extracted weight.
+    the discrete oriented increment of the cascade.
+    It is a counterpart of the orientation datum, not of the $J_3$ coefficient of the metaplectic step, which
+    comes from the $\mathfrak{sl}_2$ commutator $[E,F]=H$ and not from the Heisenberg bracket (Q14,
+    Proposition~6.5)~\cite{Beau2026q14}.
+    The orientation is the cascade arrow from the projection origin to increasing
+    BFS depth, not an extracted weight; its identification with an ordering derivative $\partial_\tau$ is a
+    separate hypothesis that no source supplies~\cite{Beau2026q14}.
     The first test is not an amplitude value but the existence of an oriented signal,
     $\langle\Delta A_c\rangle_{\partial^+S_m}\neq 0$, which may fail if a residual automorphism re-pairs the
     frontier; the discriminating anti-bias control is the symmetrised-frontier cancellation
@@ -61,7 +64,7 @@ a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
     wrong observable for a recursively oriented cascade.
 
     The present note records the natural exit, prescribed by the oriented cascade arrow
-    $\partial_\tau=\log g$~\cite{Beau2026q11} rather than chosen.
+    (the order of the product) rather than chosen.
     Concretely, the central phase of a single element $g=(a,b,z)$ under the central character $c$ is
     $A_c(g)=c\,z$, so the swept central coordinate $z$ is the oriented symplectic area from the origin to
     $g$.
@@ -70,8 +73,12 @@ a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
       \Delta A_c(g,s) = A_c(gs)-A_c(g) = c\big(z(s)+a(g)\,s_b\big),
     \]
     which for the admissible generators ($z(s)=0$) reduces to the pure cocycle $c\,a(g)\,s_b$.
-    This is the discrete $\tfrac{1}{2}[X,Y]$ increment: the transfer observable measures exactly the
-    dynamical $J_3$ carried by the oriented edge, not a free shear.
+    This is the Heisenberg cocycle increment of the oriented edge, linear in the orientation datum $s_b$ and
+    odd under orientation reversal.
+    It is not the $J_3$ coefficient of the metaplectic step: that coefficient comes from the $\mathfrak{sl}_2$
+    commutator $[E,F]=H$ and not from the Heisenberg bracket (Q14, Proposition~6.5)~\cite{Beau2026q14}.
+    The transfer observable is therefore a discrete counterpart of the orientation datum, and no map from it
+    to the $J_3$ coefficient is supplied.
 
   \section{The oriented frontier observable}
 
@@ -263,7 +270,7 @@ a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
     The discriminant is the symmetrised cancellation: a signal is admissible only if it is non-zero on
     $\partial^+$ \emph{and} zero on $\partial^+\cup\partial^-$.
 
-    The status of the observable is explicit: the orientation is prescribed by $\partial_\tau=\log g$, not
+    The status of the observable is explicit: the orientation is prescribed by the cascade arrow, not
     extracted from symmetric capacity data.
     Neither the normalisation $\mathcal{N}_A$ nor any comparison to a dictionary value is performed here;
     these remain deferred, and become meaningful only if both tests pass.
@@ -352,8 +359,8 @@ a Recursive Q11 Diagnostic for the Angular Generation Split\\[2pt]
     $\zeta_q^{\Delta A_c}$, with no Gauss, Maslov, or $\sqrt{5}$ component, and the outgoing-frontier overlap is
     maximal, $\rho_\chi = 1$, promoting the bound to $\mathcal{N}_A = \theta_{\max} \neq 0$ in that lift.
     The residual open point is an additional spin-Galois phase of the full Lorentzian chiral lift, in particular
-    a $\sqrt{5}$ or ADE-spin factor orthogonal to $\zeta_q$; the spectral split $u\neq 0$ still requires the
-    Schur transport~\cite{Beau2026prs,Beau2026cho}.
+    a $\sqrt{5}$ or ADE-spin factor orthogonal to $\zeta_q$; the spectral split $u\neq 0$ would further require the
+    transport hypothesis [H-Tr] of~\cite{Beau2026prs}, which no source supplies~\cite{Beau2026cho}.
 
     \bibliographystyle{plain}
     \bibliography{cosmochrony-bibliography}

@@ -4,7 +4,7 @@ J. Beau, Independent Researcher, France
 
 ## Status
 
-Working note (preprint), v1.0. DOI: [10.5281/zenodo.20601245](https://doi.org/10.5281/zenodo.20601245)
+Working note (preprint), v1.1 (local candidate, not deposited; last deposited version 1.0.1). DOI: [10.5281/zenodo.20601245](https://doi.org/10.5281/zenodo.20601245)
 
 ## Abstract
 
@@ -15,11 +15,13 @@ $J_\Pi$-odd component before the radial recursion can act.
 
 This note defines the honest replacement: a **frontier transfer observable** attached to the
 directed outgoing edges $g \to gs$ of the cascade, whose central increment is the Heisenberg
-cocycle $a(g)\, s_b$, the discrete counterpart of the Baker–Campbell–Hausdorff term
-$\tfrac{1}{2}[X, Y]$ and hence of the dynamical $J_3$.
+cocycle $a(g)\, s_b$, the discrete oriented increment of the cascade. It is a counterpart of the
+orientation datum, not of the $J_3$ coefficient of the metaplectic step, which comes from the
+$\mathfrak{sl}_2$ commutator $[E,F]=H$ and not from the Heisenberg bracket (Q14, Proposition 6.5).
 
-The orientation is the recursive arrow $\partial_\tau = \log g$ from the projection origin to
-increasing BFS depth, not an extracted weight. The first test is not an amplitude value but the
+The orientation is the cascade arrow from the projection origin to increasing BFS depth, not an
+extracted weight; its identification with an ordering derivative $\partial_\tau$ is a separate
+hypothesis that no source supplies. The first test is not an amplitude value but the
 existence of an oriented signal,
 $\langle \Delta A_c \rangle_{\partial^+ S_m} \neq 0$, which may fail if a residual automorphism
 re-pairs the frontier; the discriminating anti-bias control is the symmetrised-frontier
@@ -31,11 +33,11 @@ note: it tests only whether the recursion produces a non-zero, bias-free oriente
 ## Position in the programme
 
 This note belongs to the **fermionic matter sub-programme** (Presentation Note 6). It is a
-companion diagnostic note to Q14, supplying the falsification protocol for the recursive
-existence of the $J_3$-odd cascade signal that underlies the Q14 §6 inter-generation splitting
-mechanism. Together with the **angular-amplitude-reduction** note (BCH reduction; observable
-to be measured) and the **projective-residue-schur** note (operator-side Schur form,
-finite/Lorentzian separation), it completes the diagnostic frame in which the remaining
+companion diagnostic note to Q14, supplying the falsification protocol for the existence of an
+oriented frontier signal, a counterpart of the orientation datum of the Q14 §6 inter-generation
+splitting mechanism (not of its $J_3$ coefficient). Together with the **angular-amplitude-reduction** note (BCH reduction; observable
+to be measured) and the **projective-residue-schur** note (Schur form of the
+compression remainder, conditional generation reading), it completes the diagnostic frame in which the remaining
 quantitative step of the fermionic sector can be carried out.
 
 ## Compilation
