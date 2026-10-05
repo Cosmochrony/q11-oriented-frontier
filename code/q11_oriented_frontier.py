@@ -11,7 +11,9 @@ the directed outgoing edges g -> gs of the BFS cascade.
 For a single element g=(a,b,z) the central phase under the central character c is
 A_c(g)=c z, so along one outward step the Heisenberg law gives
     Delta A_c(g,s) = c ( z(s) + a(g) s_b ) = c a(g) s_b   (z(s)=0 for the generators),
-the discrete 1/2[X,Y] cocycle = the dynamical J_3 carried by the oriented edge.
+the discrete Heisenberg cocycle increment of the oriented edge (odd under orientation reversal;
+not the J_3 coefficient of the metaplectic step, which comes from the sl_2 commutator [E,F]=H,
+Q14 Prop 6.5).
 
 Frontiers (canonical once the origin e and admissible generators are fixed):
     d+ S_m = { (g,s): d(e,g)=m, d(e,gs)=m+1 }   (outgoing)

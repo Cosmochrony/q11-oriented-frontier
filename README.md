@@ -16,12 +16,17 @@ $J_\Pi$-odd component before the radial recursion can act.
 This note defines the honest replacement: a **frontier transfer observable** attached to the
 directed outgoing edges $g \to gs$ of the cascade, whose central increment is the Heisenberg
 cocycle $a(g)\, s_b$, the discrete oriented increment of the cascade. It is a counterpart of the
-orientation datum, not of the $J_3$ coefficient of the metaplectic step, which comes from the
-$\mathfrak{sl}_2$ commutator $[E,F]=H$ and not from the Heisenberg bracket (Q14, Proposition 6.5).
+orientation datum (a quantity odd under reversal of the cascade, linear in $s_b$, related to the
+orientation of the ordered $\mathfrak{sl}_2$ product only by analogy), and not the $J_3$ coefficient of
+the metaplectic step, which in the $\mathrm{SL}(2)$ model of Q14 is produced by the
+$\mathfrak{sl}_2$ commutator $[E,F]=H$ (Q14, Proposition 6.5).
 
-The orientation is the cascade arrow from the projection origin to increasing BFS depth, not an
-extracted weight; its identification with an ordering derivative $\partial_\tau$ is a separate
-hypothesis that no source supplies. The first test is not an amplitude value but the
+The orientation is the arrow of the Cayley graph from the projection origin to increasing BFS depth,
+not an extracted weight; no identification of this arrow with an ordering derivative
+$\partial_\tau$ is made. The chiral lift of the residual reflection is reduced to one named
+hypothesis [H-WS] (a group-level map from the finite Weil group to the spin-solder
+$\mathrm{SL}(2,\mathbb{C})$ taking $W(-I)$ to $-I$), supplied by no source; $[\gamma_5,R_b]=0$ holds
+under it. The first test is not an amplitude value but the
 existence of an oriented signal,
 $\langle \Delta A_c \rangle_{\partial^+ S_m} \neq 0$, which may fail if a residual automorphism
 re-pairs the frontier; the discriminating anti-bias control is the symmetrised-frontier
